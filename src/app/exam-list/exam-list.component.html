@@ -1,0 +1,48 @@
+<h2>İmtahanlar</h2>
+
+<form [formGroup]="examForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="examID">Dərsin Kodu:</label>
+    <input type="number" id="examID" formControlName="examID" type="number" required/>
+  </div>
+
+  <div>
+    <label for="studentID">Şagirdin Nömrəsi:</label>
+    <input type="number" id="studentID" formControlName="studentID" type="number" required/>
+  </div>
+
+  <div>
+    <label for="examDate">İmtahan Tarixi:</label>
+    <input type="date" id="examDate" class="date-input" formControlName="examDate" type="date" required/>
+  </div>
+
+  <div>
+    <label for="grade">Qiyməti:</label>
+    <input type="number" id="grade" formControlName="grade" type="number" required/>
+  </div>
+
+  <button type="submit" [disabled]="examForm.invalid">Add Exam</button>
+</form>
+
+<table class="table" *ngIf="exams.length">
+  <thead>
+  <tr>
+    <th>Dərsin Kodu</th>
+    <th>Şagirdin Nömrəsi</th>
+    <th>İmtahan Tarixi</th>
+    <th>Qiyməti</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (exam of exams; track exam.examID) {
+      <tr>
+        <td>{{ exam.examID }}</td>
+        <td>{{ exam.studentID }}</td>
+        <td>{{ exam.examDate | date }}</td>
+        <td>{{ exam.grade }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+

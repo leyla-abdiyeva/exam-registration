@@ -1,0 +1,51 @@
+<h2>Dərslər</h2>
+
+<form [formGroup]="lessonForm" (ngSubmit)="addLesson()">
+  <div>
+    <label for="lessonCode">Dərsin Kodu:</label>
+    <input type="number" id="lessonCode" formControlName="lessonCode" required/>
+  </div>
+  <div>
+    <label for="lessonName">Dərsin Adı:</label>
+    <input type="text" id="lessonName" formControlName="lessonName" required/>
+  </div>
+  <div>
+    <label for="classNumber">Sinif:</label>
+    <input type="number" id="classNumber" type="number" formControlName="classNumber" required/>
+  </div>
+  <div>
+    <label for="teacherFirstName">Dərs verən müəllimin adı:</label>
+    <input type="text" id="teacherFirstName" formControlName="teacherFirstName" required/>
+  </div>
+  <div>
+    <label for="teacherLastName">Dərs verən müəllimin soyadı:</label>
+    <input type="text" id="teacherLastName" formControlName="teacherLastName" required/>
+  </div>
+  <button type="submit" [disabled]="lessonForm.invalid">Add Lesson</button>
+</form>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Dərsin Kodu</th>
+    <th>Dərsin Adı</th>
+    <th>Sinif</th>
+    <th>Tərs verən müəllimin adı</th>
+    <th>Dərs verən müəllimin soyadı</th>
+  </tr>
+  </thead>
+  <tbody>
+
+    @for (lesson of lessons; track lesson.lessonCode) {
+      <tr>
+        <td>{{ lesson.lessonCode }}</td>
+        <td>{{ lesson.lessonName }}</td>
+        <td>{{ lesson.classNumber }}</td>
+        <td>{{ lesson.teacherFirstName }}</td>
+        <td>{{ lesson.teacherLastName }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+

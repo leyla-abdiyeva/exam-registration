@@ -1,0 +1,35 @@
+nav {
+  background-color: #007bff;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  color: #ffffff;
+  display: inline;
+  margin-right: 20px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.active {
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+li:hover{
+  cursor: pointer;
+}

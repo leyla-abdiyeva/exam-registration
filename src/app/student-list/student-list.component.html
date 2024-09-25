@@ -1,0 +1,44 @@
+<h2>Şagirdlər</h2>
+
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="studentID">Şagiridn Kodu:</label>
+    <input type="number" id="studentID" formControlName="studentID" required/>
+  </div>
+  <div>
+    <label for="firstName">Şagirdin Adı:</label>
+    <input type="text" id="firstName" formControlName="firstName" required/>
+  </div>
+  <div>
+    <label for="lastName">İmtahan Adı:</label>
+    <input type="text" id="lastName" formControlName="lastName" required/>
+  </div>
+  <div>
+    <label for="classNumber">Şagirdin sinifi:</label>
+    <input type="number" id="classNumber" type="number" formControlName="classNumber" required/>
+  </div>
+  <button type="submit" [disabled]="studentForm.invalid">Add Student</button>
+</form>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Şagiridn Kodu:</th>
+    <th>Şagirdin Adı:</th>
+    <th>İmtahan Adı:</th>
+    <th>Şagirdin sinifi:</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (student of students; track student.studentID) {
+      <tr>
+        <td>{{ student.studentID }}</td>
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.classNumber }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+
