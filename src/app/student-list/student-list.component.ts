@@ -3,7 +3,7 @@ import {CommonModule} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 import {ExamService} from "../services/exam.service";
-import {Lesson, Student} from "../shared/models";
+import {Student} from "../shared/models";
 
 @Component({
   selector: 'app-student-list',
