@@ -2,7 +2,7 @@
 
 <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="studentID">Şagiridn Kodu:</label>
+    <label for="studentID">Şagirdin Kodu:</label>
     <input type="number" id="studentID" formControlName="studentID" required/>
   </div>
   <div>
@@ -14,7 +14,7 @@
     <input type="text" id="lastName" formControlName="lastName" required/>
   </div>
   <div>
-    <label for="classNumber">Şagirdin sinifi:</label>
+    <label for="classNumber">Şagirdin sinfi:</label>
     <input type="number" id="classNumber" type="number" formControlName="classNumber" required/>
   </div>
   <button type="submit" [disabled]="studentForm.invalid">Add Student</button>
