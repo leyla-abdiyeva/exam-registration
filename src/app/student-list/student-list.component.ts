@@ -13,19 +13,20 @@ import {Lesson, Student} from "../shared/models";
   styleUrl: './student-list.component.css'
 })
 export class StudentListComponent implements OnInit {
-  studentForm: FormGroup;
+  studentForm!: FormGroup;
   students: Student[] = [];
 
   constructor(private examService: ExamService, private fb: FormBuilder) {
+  }
+
+  ngOnInit(): void {
     this.studentForm = this.fb.group({
       studentID: ['', [Validators.required]],
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       classNumber: ['', [Validators.required, Validators.min(1), Validators.max(11)]],
     });
-  }
 
-  ngOnInit(): void {
     this.examService.getStudents().subscribe(data => {
       this.students = data;
     });

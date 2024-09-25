@@ -17,8 +17,8 @@ import {Lesson} from "../shared/models";
   styleUrls: ['./lesson-list.component.css'],
 })
 export class LessonListComponent implements OnInit {
-  lessons: Lesson[] = [];
   lessonForm!: FormGroup;
+  lessons: Lesson[] = [];
 
   constructor(private examService: ExamService, private fb: FormBuilder) {
   }
@@ -28,12 +28,9 @@ export class LessonListComponent implements OnInit {
       lessonCode: ['', Validators.required],
       lessonName: ['', Validators.required],
       classNumber: [null, Validators.required],
-      teacherFirstName:
-        ['', Validators.required],
-      teacherLastName:
-        ['', Validators.required],
-    })
-    ;
+      teacherFirstName: ['', Validators.required],
+      teacherLastName: ['', Validators.required],
+    });
 
     this.examService.getLessons().subscribe((data) => {
       this.lessons = data;
